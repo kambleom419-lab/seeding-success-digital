@@ -17,7 +17,6 @@
       Visualizing your self-development journey — before and after.
     </p>
 
-    <!-- SCORE SUMMARY -->
     <div class="summary-grid">
       <div class="summary-card">
         <h3>Baseline Score</h3>
@@ -25,7 +24,7 @@
       </div>
 
       <div class="summary-card">
-        <h3>SMART Goal Score</h3>
+        <h3>AI-Evaluated SMART Score</h3>
         <p id="smartScore">--%</p>
       </div>
 
@@ -34,8 +33,14 @@
         <p id="improvement">--%</p>
       </div>
     </div>
+    <div class="insight-card">
+  <h3>AI Goal Insight</h3>
+  <p id="aiFeedback">Loading insight...</p>
+</div>
+
    <div class="summary-grid">
   <div class="summary-card">
+    
     <h3>Your Level</h3>
     <p id="userLevel">--</p>
   </div>
@@ -46,21 +51,26 @@
   <div id="badgesContainer"></div>
 </div>
 
-    <!-- BAR CHART -->
+  
     <div class="chart-box">
       <h2>Before vs After Comparison</h2>
       <canvas id="barChart"></canvas>
     </div>
 
-    <!-- RADAR CHART -->
+  
     <h2>Temperament: Before vs After</h2>
 <canvas id="temperamentCompareChart"></canvas>
 <div class="chart-box">
   <h2>Growth Over Time</h2>
   <canvas id="trendChart"></canvas>
 </div>
+<div class="insight-card">
+  <h3>AI Temperament Insight</h3>
+  <p id="temperamentInsight">Analyzing your temperament...</p>
+</div>
 
-    <!-- INSIGHTS -->
+
+
     <div class="insight-box" id="insightBox">
       Loading insights...
     </div>
@@ -76,10 +86,9 @@
   </button>
 </div>
 
- <!-- Chart.js FIRST -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Dashboard logic SECOND -->
 <script src="dashboard.js"></script>
 </body>
 </html>

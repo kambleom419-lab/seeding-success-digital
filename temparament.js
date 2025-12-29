@@ -1,7 +1,6 @@
 const sliders = document.querySelectorAll(".slider");
 const resultBox = document.getElementById("temperamentResult");
 
-// Update displayed slider value
 sliders.forEach(slider => {
   const valueSpan = slider.nextElementSibling;
 
@@ -28,7 +27,7 @@ function calculateTemperament() {
 
     const max = items.length * 5;
 
-    // prevent divide by zero
+
     results[cat] = max > 0 ? Math.round((total / max) * 100) : 0;
   });
 
@@ -51,11 +50,11 @@ function displayResult(results) {
   `;
 }
 
-// Save & move ahead
+
 document.getElementById("temperamentForm").addEventListener("submit", e => {
   e.preventDefault();
 
-  calculateTemperament(); // force save
+  calculateTemperament(); 
    saveReassessment();  
    calculateLevel(); 
    awardBadges();   

@@ -1,9 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* ===============================
-     1. READ DATA ONCE (IMPORTANT)
-  ================================ */
-
   const baselineScore = Number(localStorage.getItem("baselineScore")) || 0;
   const smartScore = Number(localStorage.getItem("smartScore")) || 0;
 
@@ -18,9 +13,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const reassessments =
     JSON.parse(localStorage.getItem("reassessments")) || [];
 
-  /* ===============================
-     2. SHOW TOP SUMMARY NUMBERS
-  ================================ */
+const insightEl = document.getElementById("temperamentInsight");
+
+if (temperament && insightEl) {
+  const { fear, rage, courage, peace } = temperament;
+
+  let insight = "";
+
+
+  const traits = [
+    { name: "Fear", value: fear },
+    { name: "Rage", value: rage },
+    { name: "Courage", value: courage },
+    { name: "Peace", value: peace }
+  ];
+
+  traits.sort((a, b) => b.value - a.value);
+  const dominant = traits[0];
+  const weakest = traits[traits.length - 1];
+
+  insight += `Your dominant disposition is ${dominant.name}, `;
+  insight += dominant.name === "Courage"
+    ? "indicating confidence and willingness to face challenges. "
+    : dominant.name === "Peace"
+    ? "reflecting emotional balance and calmness. "
+    : dominant.name === "Fear"
+    ? "suggesting hesitation and self-doubt in uncertain situations. "
+    : "indicating strong emotional reactions under stress. ";
+
+  insight += `Your weakest disposition is ${weakest.name}. `;
+
+ 
+  if (fear > 60) {
+    insight += "Practicing small acts of courage daily can help reduce fear. ";
+  }
+  if (rage > 60) {
+    insight += "Mindful pauses and breathing exercises may help manage anger responses. ";
+  }
+  if (peace < 40) {
+    insight += "Spending quiet time in reflection can help build inner peace. ";
+  }
+  if (courage < 40) {
+    insight += "Setting and completing small challenges can strengthen courage. ";
+  }
+
+  insightEl.textContent = insight;
+}
+
+ 
 
   document.getElementById("baselineScore").textContent =
     baselineScore + "%";
@@ -32,9 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("improvement").textContent =
     (improvement >= 0 ? "+" : "") + improvement + "%";
 
-  /* ===============================
-     3. BAR CHART (BASELINE vs SMART)
-  ================================ */
+
 
   new Chart(document.getElementById("barChart"), {
     type: "bar",
@@ -52,10 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+ 
+  const baseline = Number(localStorage.getItem("baselineScore"));
+  const smart = Number(localStorage.getItem("smartScore"));
 
-  /* ===============================
-     4. BEFORE vs AFTER RADAR
-  ================================ */
+  if (!isNaN(baseline) && !isNaN(smart)) {
+    const diff = smart - baseline;
+
+    const improvementText = document.getElementById("improvementText");
+
+    if (improvementText) {
+      improvementText.textContent =
+        diff >= 0
+          ? `+${diff}% improvement from baseline`
+          : `${diff}% change from baseline`;
+    }
+  }
+
+  
 
   if (reassessments.length >= 2) {
 
@@ -106,10 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "Complete at least two assessments to view temperament comparison.";
   }
 
-  /* ===============================
-     5. TREND LINE CHART
-  ================================ */
-
   if (reassessments.length >= 2) {
 
     const labels = reassessments.map((_, i) => `Attempt ${i + 1}`);
@@ -150,9 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ===============================
-     6. HISTORY LIST
-  ================================ */
+
 
   const historyList = document.getElementById("historyList");
 
@@ -175,9 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ===============================
-     7. LEVEL & BADGES
-  ================================ */
+
 
   const level = localStorage.getItem("userLevel") || "Observer";
   const badges =
@@ -200,9 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* ===============================
-     8. FINAL INSIGHT
-  ================================ */
 
   let insight = "Your journey reflects measurable personal growth. ";
 
@@ -220,9 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("insightBox").textContent = insight;
 
-  /* ===============================
-   9. RESET JOURNEY
-================================ */
+
 
 const resetBtn = document.getElementById("resetJourneyBtn");
 
@@ -238,6 +277,12 @@ if (resetBtn) {
     }
   });
 }
+const aiFeedback = localStorage.getItem("smartFeedback");
+
+if (aiFeedback) {
+  document.getElementById("aiFeedback").textContent = aiFeedback;
+}
+
 
 });
 

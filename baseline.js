@@ -1,6 +1,6 @@
 const sliders = document.querySelectorAll(".slider");
 
-// Update value dynamically
+
 sliders.forEach(slider => {
   const valueDisplay = slider.nextElementSibling;
 
@@ -9,7 +9,7 @@ sliders.forEach(slider => {
   });
 });
 
-// Handle form submission
+
 document.getElementById("baselineForm").addEventListener("submit", function (e) {
   e.preventDefault();
 

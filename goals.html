@@ -17,7 +17,7 @@
 
     <form id="goalForm">
 
-      <!-- Goal Category -->
+   
       <div class="field">
         <label>Goal Category</label>
         <select id="category" required>
@@ -28,7 +28,7 @@
         </select>
       </div>
 
-      <!-- SMART Inputs -->
+ 
       <div class="field">
         <label>Specific – What exactly do you want?</label>
         <textarea id="specific" required></textarea>
@@ -54,8 +54,7 @@
         <textarea id="timebound" required></textarea>
       </div>
 
-      <!-- Score Display -->
-       <!-- Score Display -->
+  
 <div class="score-box">
   <p>SMART Score</p>
   <h2 id="score">0%</h2>
@@ -63,9 +62,17 @@
 
 
 
-     <button type="submit" class="btn-primary submit-btn">
-  Save Goal & Continue
-</button>
+<div class="button-group">
+  <button type="submit" class="btn-primary submit-btn">
+    Evaluate Goal
+  </button>
+
+  <button type="button" id="continueBtn" class="btn-primary ghost-btn" style="display:none;">
+    Continue
+  </button>
+</div>
+
+
 
 </form>
 </section>

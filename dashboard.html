@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growth Dashboard | Seeding Success</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <section class="dashboard-container">
+    <h1>Your Growth Dashboard</h1>
+    <p class="subtitle">
+      Visualizing your self-development journey — before and after.
+    </p>
+
+    <!-- SCORE SUMMARY -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <h3>Baseline Score</h3>
+        <p id="baselineScore">--%</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>SMART Goal Score</h3>
+        <p id="smartScore">--%</p>
+      </div>
+
+      <div class="summary-card">
+        <h3>Growth Improvement</h3>
+        <p id="improvement">--%</p>
+      </div>
+    </div>
+   <div class="summary-grid">
+  <div class="summary-card">
+    <h3>Your Level</h3>
+    <p id="userLevel">--</p>
+  </div>
+</div>
+
+<div class="chart-box">
+  <h2>Badges Earned</h2>
+  <div id="badgesContainer"></div>
+</div>
+
+    <!-- BAR CHART -->
+    <div class="chart-box">
+      <h2>Before vs After Comparison</h2>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- RADAR CHART -->
+    <h2>Temperament: Before vs After</h2>
+<canvas id="temperamentCompareChart"></canvas>
+<div class="chart-box">
+  <h2>Growth Over Time</h2>
+  <canvas id="trendChart"></canvas>
+</div>
+
+    <!-- INSIGHTS -->
+    <div class="insight-box" id="insightBox">
+      Loading insights...
+    </div>
+   <div class="chart-box">
+  <h2>Reassessment History</h2>
+  <ul id="historyList"></ul>
+</div>
+
+  </section>
+<div class="reset-box">
+  <button id="resetJourneyBtn" class="btn-reset">
+    Reset Journey
+  </button>
+</div>
+
+ <!-- Chart.js FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard logic SECOND -->
+<script src="dashboard.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART Goal Builder | Seeding Success</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+
+  <section class="goal-container">
+    <h1>SMART Goal Builder</h1>
+    <p class="subtitle">
+      Convert your wish into a clear, actionable SMART goal.
+    </p>
+
+    <form id="goalForm">
+
+      <!-- Goal Category -->
+      <div class="field">
+        <label>Goal Category</label>
+        <select id="category" required>
+          <option value="">Select</option>
+          <option>Educational</option>
+          <option>Professional</option>
+          <option>Life</option>
+        </select>
+      </div>
+
+      <!-- SMART Inputs -->
+      <div class="field">
+        <label>Specific – What exactly do you want?</label>
+        <textarea id="specific" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Measurable – How will you measure success?</label>
+        <textarea id="measurable" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Achievable – Is it realistic for you?</label>
+        <textarea id="achievable" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Relevant – Why is this important?</label>
+        <textarea id="relevant" required></textarea>
+      </div>
+
+      <div class="field">
+        <label>Time-bound – By when will you achieve it?</label>
+        <textarea id="timebound" required></textarea>
+      </div>
+
+      <!-- Score Display -->
+       <!-- Score Display -->
+<div class="score-box">
+  <p>SMART Score</p>
+  <h2 id="score">0%</h2>
+</div>
+
+
+
+     <button type="submit" class="btn-primary submit-btn">
+  Save Goal & Continue
+</button>
+
+</form>
+</section>
+<script src="goals.js"></script>
+
+</body>
+</html>
+
